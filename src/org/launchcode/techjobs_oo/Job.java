@@ -19,7 +19,7 @@ public class Job {
 
     public Job() {
         id = nextId;
-        id++;
+        nextId++;
     }
 
     public Job(String name,
