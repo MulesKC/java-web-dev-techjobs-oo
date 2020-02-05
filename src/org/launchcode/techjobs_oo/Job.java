@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Job {
@@ -99,4 +101,24 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+
+        return "\nID: " + this.getId() + "\n" +
+                "Name: " + checkIfNullForToString(this.getName()) + "\n" +
+                "Employer: " + checkIfNullForToString(this.getEmployer()) + "\n" +
+                "Location: " + checkIfNullForToString(this.getLocation()) + "\n" +
+                "Position Type: " + checkIfNullForToString(this.getPositionType()) + "\n" +
+                "Core Competency: " + checkIfNullForToString(this.getCoreCompetency()) + "\n";
+    }
+
+    private Object checkIfNullForToString(Object field) {
+        if (field == null) {
+            field = "Data not available";
+        }
+        return field;
+    }
+
+
 }
