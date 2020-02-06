@@ -105,12 +105,24 @@ public class Job {
     @Override
     public String toString() {
 
-        return "\nID: " + this.getId() + "\n" +
-                "Name: " + checkIfNullForToString(this.getName()) + "\n" +
-                "Employer: " + checkIfNullForToString(this.getEmployer()) + "\n" +
-                "Location: " + checkIfNullForToString(this.getLocation()) + "\n" +
-                "Position Type: " + checkIfNullForToString(this.getPositionType()) + "\n" +
-                "Core Competency: " + checkIfNullForToString(this.getCoreCompetency()) + "\n";
+        if (this.getName() == null &&
+            this.getEmployer() == null &&
+            this.getLocation() == null &&
+            this.getCoreCompetency() == null &&
+            this.getPositionType() == null
+            ) {
+
+            return "OOPS! This job does not seem to exist.";
+
+        } else {
+
+            return "\nID: " + this.getId() + "\n" +
+                    "Name: " + checkIfNullForToString(this.getName()) + "\n" +
+                    "Employer: " + checkIfNullForToString(this.getEmployer()) + "\n" +
+                    "Location: " + checkIfNullForToString(this.getLocation()) + "\n" +
+                    "Position Type: " + checkIfNullForToString(this.getPositionType()) + "\n" +
+                    "Core Competency: " + checkIfNullForToString(this.getCoreCompetency()) + "\n";
+        }
     }
 
     private Object checkIfNullForToString(Object field) {

@@ -108,9 +108,8 @@ public class JobTest {
 
     @Test
     public void testToStringEmptyField() {
-        test_job2 = new Job();
+        test_job2 = new Job(null, new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
 
-        test_job2.toString();
 
         assertTrue(test_job2.toString().contains("ID: " + test_job2.getId()));
         assertTrue(test_job2.toString().contains("Name: " + "Data not available"));
@@ -119,6 +118,13 @@ public class JobTest {
         assertTrue(test_job2.toString().contains("Position Type: " + "Data not available"));
         assertTrue(test_job2.toString().contains("Core Competency: " + "Data not available"));
 
+    }
+
+    @Test
+    public void testToStringOnlyHasID() {
+        test_job2 = new Job();
+
+        assertTrue(test_job2.toString() == "OOPS! This job does not seem to exist.");
     }
 
 }
